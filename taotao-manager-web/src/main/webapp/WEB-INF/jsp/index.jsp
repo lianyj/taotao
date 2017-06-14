@@ -40,7 +40,7 @@
     <div data-options="region:'center',title:''">
     	<div id="tabs" class="easyui-tabs">
 		    <div title="首页" style="padding:20px;">
-		        	
+		        	<h1>欢迎登陆淘淘商城后台！</h1>
 		    </div>
 		</div>
     </div>

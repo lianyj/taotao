@@ -6,6 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.taotao.common.pojo.EUDataGridResult;
 import com.taotao.common.pojo.TaotaoResult;
 import com.taotao.mapper.TbItemParamMapper;
 import com.taotao.pojo.TbItemParam;
@@ -50,6 +53,34 @@ public class ItemParamServiceImpl implements ItemParamService {
 		//插入到规格参数模板表
 		itemParamMapper.insert(itemParam);
 		return TaotaoResult.ok();
+	}
+	
+	@Override
+	public EUDataGridResult getItemParamList(Integer page, Integer rows){
+		
+		TbItemParamExample example = new TbItemParamExample();
+		//分页处理
+		PageHelper.startPage(page, rows);
+		List<TbItemParam> list = itemParamMapper.selectByExampleWithBLOBs(example);
+		//创建一个返回值对象
+		EUDataGridResult result = new EUDataGridResult();
+		result.setRows(list);
+		//取记录总条数
+		PageInfo<TbItemParam> pageInfo = new PageInfo<TbItemParam>(list);
+		result.setTotal(pageInfo.getTotal());
+		return result;
+		
+	}
+	
+	@Override
+	public void deleteItemParam(TbItemParam itemParam){
+		
+		String[] ids = itemParam.getParamData().split(",");
+		if(null !=ids &&ids.length>0){
+			for (String id : ids) {
+				itemParamMapper.deleteByPrimaryKey(Long.valueOf(id));
+			}
+		}
 	}
 
 }

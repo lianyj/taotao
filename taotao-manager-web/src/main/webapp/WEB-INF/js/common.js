@@ -25,7 +25,7 @@ var TT = TAOTAO = {
 		//指定上传文件参数名称
 		filePostName  : "uploadFile",
 		//指定上传文件请求的url。
-		uploadJson : '/pic/upload',
+		uploadJson : '/taotao-manager-web/pic/upload',
 		//上传类型，分别为image、flash、media、file
 		dir : "image"
 	},
@@ -123,7 +123,7 @@ var TT = TAOTAO = {
     			    onOpen : function(){
     			    	var _win = this;
     			    	$("ul",_win).tree({
-    			    		url:'/item/cat/list',
+    			    		url:'/taotao-manager-web/item/cat/list',
     			    		animate:true,
     			    		onClick : function(node){
     			    			if($(this).tree("isLeaf",node.target)){
@@ -190,7 +190,7 @@ var TT = TAOTAO = {
     },
     
     changeItemParam : function(node,formId){
-    	$.getJSON("/item/param/query/itemcatid/" + node.id,function(data){
+    	$.getJSON("/taotao-manager-web/item/param/query/itemcatid/" + node.id,function(data){
 			  if(data.status == 200 && data.data){
 				 $("#"+formId+" .params").show();
 				 var paramData = JSON.parse(data.data.paramData);
