@@ -10,19 +10,19 @@ public class TbOrder {
     private Integer paymentType;
 
     private String postFee;
-
+    //状态：1、未付款，2、已付款，3、未发货，4、已发货，5、交易成功，6、交易关闭
     private Integer status;
-
+    //创建时间
     private Date createTime;
-
+    //修改时间
     private Date updateTime;
 
     private Date paymentTime;
 
     private Date consignTime;
-
+    //结束时间
     private Date endTime;
-
+    //关闭时间
     private Date closeTime;
 
     private String shippingName;
@@ -34,7 +34,7 @@ public class TbOrder {
     private String buyerMessage;
 
     private String buyerNick;
-
+    //0：未评价 1：已评价
     private Integer buyerRate;
 
     public String getOrderId() {
