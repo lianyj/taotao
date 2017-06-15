@@ -1,7 +1,13 @@
 package com.taotao.portal.pojo;
 
-public class CartItem {
+import java.io.Serializable;
 
+public class CartItem implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1070639286706907167L;
 	private long id;
 	private String title;
 	private Integer num;
