@@ -15,7 +15,6 @@ import com.taotao.mapper.TbContentMapper;
 import com.taotao.pojo.TbContent;
 import com.taotao.pojo.TbContentExample;
 import com.taotao.pojo.TbContentExample.Criteria;
-import com.taotao.pojo.TbItemParam;
 import com.taotao.service.ContentService;
 
 /**
@@ -69,7 +68,7 @@ public class ContentServiceImpl implements ContentService {
 		EUDataGridResult result = new EUDataGridResult();
 		result.setRows(list);
 		//取记录总条数
-		PageInfo<TbItemParam> pageInfo = new PageInfo<TbItemParam>();
+		PageInfo<TbContent> pageInfo = new PageInfo<TbContent>(list);
 		result.setTotal(pageInfo.getTotal());
 		return result;
 	}

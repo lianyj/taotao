@@ -76,4 +76,19 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 		return TaotaoResult.ok(contentCategory);
 	}
 
+	public TaotaoResult updateContentCategory(Long id, String name){
+		
+		TbContentCategory contentCategory = new TbContentCategory();
+		contentCategory.setId(id);
+		contentCategory.setName(name);
+		contentCategory.setUpdated(new Date());
+		contentCategoryMapper.updateByPrimaryKeySelective(contentCategory);
+		return TaotaoResult.ok();
+
+	}
+	
+	public TaotaoResult deleteContentCategory(Long id){
+		contentCategoryMapper.deleteByPrimaryKey(id);
+		return TaotaoResult.ok();
+	}
 }

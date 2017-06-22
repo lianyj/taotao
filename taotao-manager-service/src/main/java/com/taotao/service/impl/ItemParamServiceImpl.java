@@ -10,7 +10,9 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.taotao.common.pojo.EUDataGridResult;
 import com.taotao.common.pojo.TaotaoResult;
+import com.taotao.mapper.TbItemCatMapper;
 import com.taotao.mapper.TbItemParamMapper;
+import com.taotao.pojo.TbItemCat;
 import com.taotao.pojo.TbItemParam;
 import com.taotao.pojo.TbItemParamExample;
 import com.taotao.pojo.TbItemParamExample.Criteria;
@@ -30,6 +32,9 @@ public class ItemParamServiceImpl implements ItemParamService {
 
 	@Autowired
 	private TbItemParamMapper itemParamMapper;
+	
+	@Autowired
+	private TbItemCatMapper itemCatMapper;
 	
 	@Override
 	public TaotaoResult getItemParamByCid(long cid) {
@@ -62,6 +67,10 @@ public class ItemParamServiceImpl implements ItemParamService {
 		//分页处理
 		PageHelper.startPage(page, rows);
 		List<TbItemParam> list = itemParamMapper.selectByExampleWithBLOBs(example);
+		for (TbItemParam tbItemParam : list) {
+			TbItemCat tbItemCat = itemCatMapper.selectByPrimaryKey(tbItemParam.getItemCatId());
+			tbItemParam.setItemCatName(tbItemCat.getName());
+		}
 		//创建一个返回值对象
 		EUDataGridResult result = new EUDataGridResult();
 		result.setRows(list);

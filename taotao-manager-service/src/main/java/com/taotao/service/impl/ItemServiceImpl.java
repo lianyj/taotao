@@ -46,8 +46,8 @@ public class ItemServiceImpl implements ItemService {
 	public TbItem getItemById(long itemId) {
 		
 		//TbItem item = itemMapper.selectByPrimaryKey(itemId);
-		//添加查询条件
 		TbItemExample example = new TbItemExample();
+		//添加查询条件
 		Criteria criteria = example.createCriteria();
 		criteria.andIdEqualTo(itemId);
 		List<TbItem> list = itemMapper.selectByExample(example);
@@ -144,5 +144,56 @@ public class ItemServiceImpl implements ItemService {
 		return TaotaoResult.ok();
 		
 	}
-
+	
+	public TaotaoResult deleteItem(String ids){
+		String[] idList = ids.split(",");
+		if(null !=idList &&idList.length>0){
+			for (String id : idList) {
+				itemMapper.deleteByPrimaryKey(Long.valueOf(id));
+			}
+		}
+		return TaotaoResult.ok();
+		 
+	}
+	
+	
+	public TaotaoResult instockItem(String ids){
+		String[] idList = ids.split(",");
+		if(null !=idList &&idList.length>0){
+			for (String id : idList) {
+				TbItem item = new TbItem();
+				item.setId(Long.valueOf(id));
+				// '商品状态，1-正常，2-下架，3-删除',
+				item.setStatus((byte) 2);
+				itemMapper.updateByPrimaryKeySelective(item);
+			}
+		}
+		return TaotaoResult.ok();
+	}
+	
+	
+	public TaotaoResult reshelfItem(String ids){
+		String[] idList = ids.split(",");
+		if(null !=idList &&idList.length>0){
+			for (String id : idList) {
+				TbItem item = new TbItem();
+				item.setId(Long.valueOf(id));
+				// '商品状态，1-正常，2-下架，3-删除',
+				item.setStatus((byte) 1);
+				itemMapper.updateByPrimaryKeySelective(item);
+			}
+		}
+		return TaotaoResult.ok();
+	}
+	
+	//查询商品描述
+	public TbItemDesc queryItemDesc(Long itemId){
+		TbItemDesc  tbItemDesc= itemDescMapper.selectByPrimaryKey(itemId);
+		return tbItemDesc;
+	}
+	//加载商品规格
+	public TbItemParamItem queryItemParam( Long itemId){
+		TbItemParamItem tbItemParamItem = itemParamItemMapper.selectByPrimaryKey(itemId);
+		return tbItemParamItem;
+	}
 }
