@@ -11,6 +11,9 @@ public interface ItemService {
 	TbItem getItemById(long itemId);
 	EUDataGridResult getItemList(int page, int rows);
 	TaotaoResult createItem(TbItem item, String desc, String itemParam) throws Exception;
+	
+	TaotaoResult updateItem(TbItem item, String desc, String itemParam);
+	
 	TaotaoResult deleteItem(String ids);
 	//下架
 	TaotaoResult instockItem(String ids);

@@ -51,6 +51,14 @@ public class ItemController {
 		return result;
 	}
 	
+	
+	@RequestMapping(value="/item/update", method=RequestMethod.POST)
+	@ResponseBody
+	private TaotaoResult updateItem(TbItem item, String desc, String itemParams) throws Exception {
+		TaotaoResult result = itemService.updateItem(item, desc, itemParams);
+		return result;
+	}
+	
 	@RequestMapping(value="/item/delete", method=RequestMethod.POST)
 	@ResponseBody
 	private TaotaoResult deleteItem(String ids){

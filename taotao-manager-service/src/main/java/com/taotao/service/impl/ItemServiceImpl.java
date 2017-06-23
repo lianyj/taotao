@@ -107,6 +107,30 @@ public class ItemServiceImpl implements ItemService {
 		}
 		return TaotaoResult.ok();
 	}
+	
+	public TaotaoResult updateItem(TbItem item, String desc, String itemParam) {
+		
+		//修改商品信息
+		item.setUpdated(new Date());
+		itemMapper.updateByPrimaryKeySelective(item);
+		
+		//修改商品描述信息
+		TbItemDesc itemDesc = new TbItemDesc();
+		itemDesc.setItemId(item.getId());
+		itemDesc.setItemDesc(desc);
+		itemDesc.setUpdated(new Date());
+		itemDescMapper.updateByPrimaryKeySelective(itemDesc);
+		
+		//修改规格参数
+		TbItemParamItem itemParamItem = new TbItemParamItem();
+		itemParamItem.setItemId(item.getId());
+		itemParamItem.setParamData(itemParam);
+		itemParamItem.setUpdated(new Date());
+		itemParamItemMapper.updateByPrimaryKeySelective(itemParamItem);
+		
+		return TaotaoResult.ok();
+	}
+	
 	/**
 	 * 添加商品描述
 	 * <p>Title: insertItemDesc</p>
