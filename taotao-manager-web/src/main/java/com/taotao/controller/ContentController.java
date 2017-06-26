@@ -1,10 +1,5 @@
 package com.taotao.controller;
 
-import java.io.File;
-import java.io.FileInputStream;
-
-import org.apache.commons.net.ftp.FTP;
-import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
