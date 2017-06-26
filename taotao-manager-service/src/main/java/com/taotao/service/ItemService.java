@@ -22,7 +22,7 @@ public interface ItemService {
 	//查询商品描述
 	TbItemDesc queryItemDesc( Long itemId);
 	//加载商品规格
-	TbItemParamItem queryItemParam( Long itemId);
+	TbItemParamItem queryItemParamItem( Long itemId);
 	
 	
 }
