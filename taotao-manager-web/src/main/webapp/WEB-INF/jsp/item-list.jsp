@@ -66,6 +66,7 @@
         			
         			// 加载商品描述
         			$.getJSON('/taotao-manager-web/item/query/item/desc/'+data.id,function(_data){
+        				console.log("加载商品描述:   " + _data.data.itemDesc);
         				if(_data.status == 200){
         					//UM.getEditor('itemeEditDescEditor').setContent(_data.data.itemDesc, false);
         					itemEditEditor.html(_data.data.itemDesc);
@@ -74,6 +75,7 @@
         			
         			//加载商品规格
         			$.getJSON('/taotao-manager-web/item/param/item/query/'+data.id,function(_data){
+        				console.log("加载商品规格   " + _data.data);
         				if(_data && _data.status == 200 && _data.data && _data.data.paramData){
         					$("#itemeEditForm .params").show();
         					$("#itemeEditForm [name=itemParams]").val(_data.data.paramData);
