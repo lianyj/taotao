@@ -19,6 +19,7 @@ import com.taotao.pojo.TbItemDesc;
 import com.taotao.pojo.TbItemExample;
 import com.taotao.pojo.TbItemExample.Criteria;
 import com.taotao.pojo.TbItemParamItem;
+import com.taotao.pojo.TbItemParamItemExample;
 import com.taotao.service.ItemService;
 
 /**
@@ -216,8 +217,11 @@ public class ItemServiceImpl implements ItemService {
 		return tbItemDesc;
 	}
 	//加载商品规格
-	public TbItemParamItem queryItemParam( Long itemId){
-		TbItemParamItem tbItemParamItem = itemParamItemMapper.selectByPrimaryKey(itemId);
-		return tbItemParamItem;
+	public TbItemParamItem queryItemParamItem( Long itemId){
+		TbItemParamItemExample example = new TbItemParamItemExample();
+		TbItemParamItemExample.Criteria criteria = example.createCriteria();
+		criteria.andItemIdEqualTo(itemId);
+		List<TbItemParamItem> tbItemParamItem = itemParamItemMapper.selectByExampleWithBLOBs(example);
+		return tbItemParamItem.get(0);
 	}
 }
