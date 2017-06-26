@@ -88,6 +88,7 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+    order by created, id
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 

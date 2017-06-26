@@ -231,7 +231,14 @@
         param_data = #{paramData,jdbcType=LONGVARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where 1=1
+    <if test="id != null" >
+         and id = #{id,jdbcType=BIGINT}
+      </if>
+      <if test="itemId != null" >
+        and item_id = #{itemId,jdbcType=BIGINT}
+      </if>
+   
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.taotao.pojo.TbItemParamItem" >
     update tb_item_param_item
