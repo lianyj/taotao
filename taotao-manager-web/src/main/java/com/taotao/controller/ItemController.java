@@ -106,7 +106,7 @@ public class ItemController {
 		@ResponseBody
 		private TaotaoResult queryItemParam(@PathVariable Long itemId){
 		 	TaotaoResult result = new TaotaoResult();
-		 	TbItemParamItem tbItemParamItem = itemService.queryItemParam(itemId);
+		 	TbItemParamItem tbItemParamItem = itemService.queryItemParamItem(itemId);
 		 	result.setData(tbItemParamItem);
 			result.setStatus(200);
 			return result;
