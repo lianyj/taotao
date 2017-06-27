@@ -34,6 +34,12 @@ public class ContentController {
 		return result;
 	}
 	
+	@RequestMapping("/edit")
+	@ResponseBody
+	public TaotaoResult updateContent(TbContent content) {
+		TaotaoResult result = contentService.updateContent(content);
+		return result;
+	}
 
 	@RequestMapping("/query/list")
 	@ResponseBody

@@ -9,4 +9,5 @@ public interface ContentService {
 	TaotaoResult insertContent(TbContent content);
 	EUDataGridResult getContent(TbContent content,Integer page, Integer rows);
 	void deletetContent(String ids);
+	TaotaoResult updateContent(TbContent content);
 }

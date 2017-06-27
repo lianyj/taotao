@@ -41,6 +41,8 @@
 		TAOTAO.initItemCat({
 			fun:function(node){
 			$(".addGroupTr").hide().find(".param").remove();
+			//选择商品分类后根据选择的商品分类到tb_item_param规格参数模板表中取规格模板，取到了说明此商品分类的规格模板已经添加提示不能添加。
+			//如果没有取得正常添加。
 				//  判断选择的类目是否已经添加过规格
 			  $.getJSON("/taotao-manager-web/item/param/query/itemcatid/" + node.id,function(data){
 				  if(data.status == 200 && data.data){
