@@ -15,7 +15,7 @@
 <div class="w" id="logo">
     <div>
     	<a href="http://www.taotao.com">
-    		<img src="/images/taotao-logo.gif" alt="淘淘商城" width="170" height="60"/>
+    		<img src="images/taotao-logo.gif" alt="淘淘商城" width="170" height="60"/>
     	</a> <b></b>
     </div>
 </div>
@@ -108,7 +108,7 @@
                 </div>
             </div>
             <div class="phone">
-                <img width="180" height="180" src="/images/phone-bg.jpg">
+                <img width="180" height="180" src="images/phone-bg.jpg">
             </div>
             <span class="clr"></span>
         </form>

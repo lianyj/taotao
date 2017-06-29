@@ -1,14 +1,9 @@
 package com.taotao.portal.pojo;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class SearchResult implements Serializable{
+public class SearchResult {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 880008160593245433L;
 	//商品列表
 	private List<Item> itemList;
 	//总记录数

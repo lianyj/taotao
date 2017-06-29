@@ -5,10 +5,8 @@
     <artifactId>taotao-manager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.taotao</groupId>
   <artifactId>taotao-manager-pojo</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  	<!-- 依赖管理 -->
+  <!-- 依赖管理 -->
 	<dependencies>
 		<dependency>
 			<groupId>com.taotao</groupId>
