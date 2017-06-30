@@ -45,7 +45,7 @@ public class ContentServiceImpl implements ContentService {
 		
 //		//添加缓存同步逻辑
 //		try {
-//			HttpClientUtil.doGet(REST_BASE_URL + REST_CONTENT_SYNC_URL + content.getCategoryId());
+//			HttpUtil.httpGet(REST_BASE_URL + REST_CONTENT_SYNC_URL + content.getCategoryId());
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
@@ -59,7 +59,7 @@ public class ContentServiceImpl implements ContentService {
 		
 //		//添加缓存同步逻辑
 //		try {
-//			HttpClientUtil.doGet(REST_BASE_URL + REST_CONTENT_SYNC_URL + content.getCategoryId());
+//			HttpUtil.httpGet(REST_BASE_URL + REST_CONTENT_SYNC_URL + content.getCategoryId());
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
